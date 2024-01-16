@@ -62,5 +62,10 @@ struct s_table
 
 };
 
+// Error management funcions. 
+void ft_error(const char *str);
+
+// starting funcion.
+int put_the_table( t_table *table, char **args);
 
 #endif
