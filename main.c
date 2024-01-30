@@ -1,20 +1,22 @@
 #include "philo.h"
 
+
 int main(int argc, char *argv[])
 {
     t_table table;
 
-    if (argc == 4 || argc == 5)
+    if (argc == 5 || argc == 6)
     {
-        // Parse the data, and fill the table.
-        put_the_table(&table, argv);
-        // create the dinner.
-
-        // Clean the data.   
+        philo_put_the_table(&table, argv);
+        // initializa all the other values.
+        philo_table_data_init(&table);
+        philo_simu_start(&table);
+        philo_wash_dishes(&table);
     }
     else 
     {
-        ft_error(YELL"Socrates: " RED"Wrong input \n"
-        YELL"Platon:" G"Correct format is : ./philo t_die t_eat t_sleep t_philo_eat");
+        ft_error(RED"Incorrect Number of Parameters, please try:\n\t" 
+        "./philo philo t_die t_eat t_sleep max_meals");
     }
+
 }

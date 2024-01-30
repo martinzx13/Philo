@@ -35,7 +35,7 @@ static int ft_check(char *str)
     
 }
 
-int ft_atoi(char *str)
+static int ft_atoi(char *str)
 {
     int num;
     int i;
@@ -50,15 +50,14 @@ int ft_atoi(char *str)
     return (num);
 }
 
-int put_the_table( t_table *table, char **args)
+void philo_put_the_table (t_table *table, char **argv)
 {
-    table->nbr_philo = ft_atoi(args[1]);
-    printf("Philosopher : %ld\n", table->nbr_philo);
-    table->time_eat  = ft_atoi(args[2]);
-    table->time_die = ft_atoi(args[3]);
-    table->time_sleep = ft_atoi(args[4]);
-    if (args[5])
-        table->time_must_eat = ft_atoi(args[5]);
-    else
-        table->time_must_eat = -1;
+    table->table_philo_num = ft_atoi(argv[1]);
+    table->table_time_die = ft_atoi(argv[2]) * 1e3;
+    table->table_time_eat = ft_atoi(argv[3]) * 1e3;
+    table->table_time_sleep = ft_atoi(argv[4]) * 1e3;
+    if (argv[5])
+        table->table_max_meals = ft_atoi(argv[5]);
+    else 
+        table->table_max_meals = -1;
 }
